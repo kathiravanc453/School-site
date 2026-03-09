@@ -223,38 +223,37 @@ const AdminFees = () => {
         // Optimistically remove from main list
         setStudents(prev => prev.filter(s => s.id !== student.id));
 
-        const timeoutId = setTimeout(async () => {
-            try {
-                const response = await fetch(`http://localhost:5000/admin/fees/${student.id}`, {
-                    method: 'DELETE',
-                    headers: { 'Authorization': `Bearer ${token}` }
-                });
-                if (!response.ok) {
-                    alert('Backend failed to delete student fee record.');
-                    fetchFees(); // re-sync
-                }
-            } catch (error) {
-                console.error('Error deleting student', error);
-                fetchFees(); // re-sync on error
-            } finally {
-                setPendingDeletes(prev => {
-                    const newPd = { ...prev };
-                    delete newPd[student.id];
-                    return newPd;
-                });
-            }
-        }, 8000); // 8 seconds to undo
-
         setPendingDeletes(prev => ({
             ...prev,
-            [student.id]: { timeoutId, student }
+            [student.id]: { student }
         }));
+    };
+
+    const handleConfirmDelete = async (studentId) => {
+        try {
+            const response = await fetch(`http://localhost:5000/admin/fees/${studentId}`, {
+                method: 'DELETE',
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            if (!response.ok) {
+                alert('Backend failed to delete student fee record.');
+                fetchFees(); // re-sync
+            }
+        } catch (error) {
+            console.error('Error deleting student', error);
+            fetchFees(); // re-sync on error
+        } finally {
+            setPendingDeletes(prev => {
+                const newPd = { ...prev };
+                delete newPd[studentId];
+                return newPd;
+            });
+        }
     };
 
     const handleUndoDelete = (studentId) => {
         const pending = pendingDeletes[studentId];
         if (pending) {
-            clearTimeout(pending.timeoutId);
             setStudents(prev => {
                 const arr = [...prev, pending.student];
                 return arr.sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0));
@@ -294,7 +293,13 @@ const AdminFees = () => {
                             Fee Account for <strong style={{color:'#f1c40f'}}>{pending.student.name}</strong> was removed.
                         </span>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                            <span style={{fontSize: '0.9rem', color: '#bdc3c7'}}>Automatically deleting in a few seconds...</span>
+                            <span style={{fontSize: '0.9rem', color: '#bdc3c7'}}>Confirm to delete permanently:</span>
+                            <button 
+                                onClick={() => handleConfirmDelete(pending.student.id)} 
+                                style={{ background: '#e74c3c', color: 'white', border: 'none', padding: '8px 15px', borderRadius: '4px', fontWeight: 'bold', cursor: 'pointer', transition: 'transform 0.2s' }}
+                            >
+                                🗑️ Confirm
+                            </button>
                             <button 
                                 onClick={() => handleUndoDelete(pending.student.id)} 
                                 style={{ background: '#f1c40f', color: '#2c3e50', border: 'none', padding: '8px 15px', borderRadius: '4px', fontWeight: 'bold', cursor: 'pointer', transition: 'transform 0.2s' }}
