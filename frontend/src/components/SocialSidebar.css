@@ -1,0 +1,89 @@
+.social-sidebar {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    gap: 5px;
+    /* Slight spacing between buttons */
+}
+
+.social-btn {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    /* Align from left within the expanded pill */
+    color: white;
+    font-size: 1.3rem;
+    text-decoration: none;
+    border-radius: 25px 0 0 25px;
+    /* Rounded pill edge on the left */
+    overflow: hidden;
+    position: relative;
+    right: -5px;
+    /* Slightly peek out */
+    transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), right 0.4s ease, filter 0.3s ease;
+    box-shadow: -2px 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.social-icon {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 0.4s ease;
+}
+
+.social-btn:hover {
+    width: 160px;
+    /* Expand pill to show text */
+    right: 0;
+    /* Align flush with screen edge */
+    filter: brightness(1.1);
+}
+
+.social-btn:hover .social-text {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Brand Colors with subtle gradients for a premium feel */
+.social-btn.facebook {
+    background: linear-gradient(135deg, #1877F2, #0d5cb9);
+}
+
+.social-btn.instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.social-btn.youtube {
+    background: linear-gradient(135deg, #FF0000, #cc0000);
+}
+
+.social-btn.youtube i {
+    color: #fff;
+}
+
+.social-btn.x-twitter {
+    background: linear-gradient(135deg, #1DA1F2, #0d84c6);
+    /* Updated to classic bird blue or keep the brand color */
+}
+
+.social-btn.linkedin {
+    background: linear-gradient(135deg, #0A66C2, #064b91);
+}

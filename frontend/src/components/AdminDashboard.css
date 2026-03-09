@@ -1,0 +1,189 @@
+.admin-dashboard {
+    min-height: 100vh;
+    background-color: var(--bg-light);
+    font-family: inherit;
+}
+
+.admin-header {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+    padding: 1.5rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow-md);
+}
+
+.admin-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.back-link {
+    color: var(--bg-white);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.back-link:hover {
+    color: var(--accent-color);
+}
+
+.admin-container {
+    padding: 3rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.admin-container h2 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    border-bottom: 3px solid var(--accent-color);
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    background: var(--bg-white);
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    white-space: nowrap;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 1.2rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.admin-table th {
+    background-color: #f8f9fa;
+    color: var(--primary-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+.admin-table tr:last-child td {
+    border-bottom: none;
+}
+
+.admin-table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.admin-table tbody tr:hover {
+    background-color: #f1f5f9;
+}
+
+/* --- Admin Alerts Styles --- */
+
+.alert-badge {
+    background-color: #e74c3c;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 12px;
+    margin-left: 10px;
+    vertical-align: middle;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 6px rgba(231, 76, 60, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(231, 76, 60, 0);
+    }
+}
+
+.unread-text {
+    color: #e74c3c;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+.unread-row {
+    background-color: rgba(52, 152, 219, 0.1) !important;
+    font-weight: 600;
+    border-left: 4px solid #3498db;
+}
+
+.btn-mark-read {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.btn-mark-read:hover {
+    background-color: #2980b9;
+}
+
+.text-muted {
+    color: #95a5a6;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.admin-table td {
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.loader {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    padding: 2rem;
+}
+
+.error-msg {
+    background-color: #fee2e2;
+    color: #ef4444;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 4rem;
+    background: var(--bg-white);
+    border-radius: 12px;
+    color: #666;
+    font-size: 1.2rem;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Make it responsive on Mobile */
+@media (max-width: 768px) {
+    .admin-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+}

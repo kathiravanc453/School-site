@@ -1,0 +1,120 @@
+.events-page {
+    min-height: 80vh;
+    background-color: #f7fbff;
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.event-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.event-date-badge {
+    background: var(--primary-color);
+    color: var(--accent-color);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;
+    text-align: center;
+}
+
+.event-date-badge .month {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.event-date-badge .day {
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-top: 5px;
+}
+
+.event-details {
+    padding: 25px;
+    flex-grow: 1;
+}
+
+.event-type {
+    display: inline-block;
+    padding: 4px 12px;
+    background: rgba(43, 88, 118, 0.1);
+    color: var(--primary-color);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.event-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.event-meta {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px 0;
+}
+
+.event-meta li {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.event-meta li i {
+    width: 20px;
+    color: var(--primary-color);
+}
+
+.event-desc {
+    color: #555;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .event-card {
+        flex-direction: column;
+    }
+
+    .event-date-badge {
+        flex-direction: row;
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .event-date-badge .day {
+        margin-top: 0;
+        font-size: 1.4rem;
+    }
+}
