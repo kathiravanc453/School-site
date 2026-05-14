@@ -236,7 +236,7 @@ const AdminDashboard = () => {
                     <a href="/admin/fees" className="back-link" style={{ marginRight: '15px', background: '#27ae60', color: 'white', padding: '5px 10px', borderRadius: '4px', textDecoration: 'none', fontWeight: 'bold' }}>💳 Fees</a>
                     <a href="/admin/alumni" className="back-link" style={{ marginRight: '15px', background: '#d35400', color: 'white', padding: '5px 10px', borderRadius: '4px', textDecoration: 'none', fontWeight: 'bold' }}>🎓 Alumni</a>
                     <a href="/admin/events" className="back-link" style={{ marginRight: '15px', background: 'var(--accent-color)', color: 'var(--primary-color)', padding: '5px 10px', borderRadius: '4px', textDecoration: 'none', fontWeight: 'bold' }}>🗓️ Events</a>
-                    <a href="/admin/teachers" className="back-link" style={{ marginRight: '15px', background: 'var(--accent-color)', color: 'var(--primary-color)', padding: '5px 10px', borderRadius: '4px', textDecoration: 'none', fontWeight: 'bold' }}>👩‍🏫 Faculty</a>
+                    <a href="/admin/staff-attendance" className="back-link" style={{ marginRight: '15px', background: 'var(--accent-color)', color: 'var(--primary-color)', padding: '5px 10px', borderRadius: '4px', textDecoration: 'none', fontWeight: 'bold' }}>✅ Attendance</a>
                     <a href="/admin/gallery" className="back-link" style={{ marginRight: '20px', background: 'var(--accent-color)', color: 'var(--primary-color)', padding: '5px 10px', borderRadius: '4px', textDecoration: 'none', fontWeight: 'bold' }}>📸 Gallery</a>
                     <button onClick={handleLogout} style={{
                         background: 'rgba(255,255,255,0.2)', color: 'var(--bg-white)',
@@ -398,6 +398,26 @@ const AdminDashboard = () => {
                         </table>
                     </div>
                 )}
+
+                {/* Teachers & Faculty Folder Section */}
+                <div style={{ marginTop: '40px', marginBottom: '20px', background: 'white', padding: '25px', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.05)', borderTop: '5px solid #8b5cf6' }}>
+                    <h2 style={{ color: '#0f172a', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                        <i className="fa-solid fa-folder-open" style={{ color: '#8b5cf6' }}></i> Teachers & Faculty Folder
+                    </h2>
+                    <p style={{ color: '#64748b', marginBottom: '20px' }}>Manage all academic staff, track daily attendance, and process student grades from this centralized module.</p>
+                    
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px' }}>
+                        
+                        <a href="/admin/student-grading" style={{ textDecoration: 'none' }}>
+                            <div style={{ background: '#f8fafc', padding: '20px', borderRadius: '10px', border: '1px solid #e2e8f0', transition: 'transform 0.2s', cursor: 'pointer' }} onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-5px)'} onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
+                                <div style={{ fontSize: '2.5rem', marginBottom: '15px' }}>💯</div>
+                                <h3 style={{ color: '#1e293b', margin: '0 0 10px 0' }}>Student Grading System</h3>
+                                <p style={{ color: '#64748b', fontSize: '0.9rem', margin: 0 }}>Add, edit, and publish term-wise grades and report cards for all students.</p>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
             </div>
             
             {/* Custom Toast Notification */}

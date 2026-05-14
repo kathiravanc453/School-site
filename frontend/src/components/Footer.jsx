@@ -8,7 +8,7 @@ const Footer = () => {
             <div className="container">
                 <div className="footer-grid">
                     <div className="footer-widget brand-info">
-                        <h2>Edu<span>Connect</span></h2>
+                        <h2>Annai Therasa <span>Hr Sec School</span></h2>
                         <p className="mt-3">Shaping tomorrow's leaders with world-class education, state-of-the-art facilities, and a curriculum designed for holistic development.</p>
                     </div>
 
@@ -38,7 +38,7 @@ const Footer = () => {
                         <ul>
                             <li><strong>Address:</strong> 123 Education Lane, Knowledge City, NY 10001</li>
                             <li><strong>Phone:</strong> +1 (555) 123-4567</li>
-                            <li><strong>Email:</strong> admissions@educonnect.school</li>
+                            <li><strong>Email:</strong> admissions@annaitherasahss.com</li>
                         </ul>
                     </div>
 
@@ -56,6 +56,50 @@ const Footer = () => {
                                 title="School Location Map"
                             ></iframe>
                         </div>
+
+                        {/* Staff & Admin Portal Access */}
+                        <div style={{ marginTop: '20px', display: 'flex', gap: '12px' }}>
+                            <Link
+                                to="/staff/login"
+                                style={{
+                                    flex: 1,
+                                    background: 'rgba(59,130,246,0.15)',
+                                    border: '1px solid rgba(59,130,246,0.3)',
+                                    color: '#60a5fa',
+                                    padding: '10px 12px',
+                                    borderRadius: '8px',
+                                    textDecoration: 'none',
+                                    fontWeight: '600',
+                                    fontSize: '0.85rem',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '8px',
+                                    transition: 'background 0.2s'
+                                }}
+                            >
+                                <i className="fa-solid fa-chalkboard-user"></i> Staff Portal
+                            </Link>
+                            <Link
+                                to="/admin"
+                                style={{
+                                    flex: 1,
+                                    background: 'rgba(71,85,105,0.15)',
+                                    border: '1px solid rgba(71,85,105,0.4)',
+                                    color: '#94a3b8',
+                                    padding: '10px 12px',
+                                    borderRadius: '8px',
+                                    textDecoration: 'none',
+                                    fontWeight: '600',
+                                    fontSize: '0.85rem',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '8px',
+                                    transition: 'background 0.2s'
+                                }}
+                            >
+                                <i className="fa-solid fa-lock"></i> Admin Portal
+                            </Link>
+                        </div>
                     </div>
                 </div>
 
@@ -67,7 +111,7 @@ const Footer = () => {
                         <a href="#" className="social-icon"><i className="fa-brands fa-linkedin-in"></i></a>
                         <a href="#" className="social-icon"><i className="fa-brands fa-youtube"></i></a>
                     </div>
-                    <p>&copy; {new Date().getFullYear()} EduConnect School. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} Annai Therasa Hr Sec School. All rights reserved.</p>
                 </div>
             </div>
         </footer>

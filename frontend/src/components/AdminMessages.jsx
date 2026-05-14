@@ -7,6 +7,7 @@ const AdminMessages = () => {
     const [message, setMessage] = useState('');
     const [status, setStatus] = useState({ type: '', text: '' });
     const [isLoading, setIsLoading] = useState(false);
+    const [selectedGrade, setSelectedGrade] = useState('');
     
     // Quick template options
     const templates = [
@@ -22,6 +23,32 @@ const AdminMessages = () => {
             window.location.href = '/admin/login';
         }
     }, [token]);
+
+    const fetchPhonesByGrade = async (grade) => {
+        if (!grade) return;
+        setStatus({ type: '', text: `Fetching numbers for ${grade}...` });
+        try {
+            const response = await fetch(`http://localhost:5000/admin/phones-by-grade?grade=${grade}`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            const data = await response.json();
+            
+            if (response.ok) {
+                if (data.numbers && data.numbers.length > 0) {
+                    const currentPhones = phone.trim() ? phone.trim() + ',\n' : '';
+                    setPhone(currentPhones + data.numbers.join(',\n'));
+                    setStatus({ type: 'success', text: `✅ Added ${data.numbers.length} numbers from ${grade} to the list.` });
+                } else {
+                    setStatus({ type: 'error', text: `No valid phone numbers found for ${grade}.` });
+                }
+            } else {
+                setStatus({ type: 'error', text: data.error || 'Failed to fetch numbers' });
+            }
+        } catch (error) {
+            setStatus({ type: 'error', text: 'Server connection error.' });
+        }
+        setSelectedGrade(''); // Reset
+    };
 
     const handleSendSMS = async (e) => {
         e.preventDefault();
@@ -125,6 +152,44 @@ const AdminMessages = () => {
                     )}
 
                     <form onSubmit={handleSendSMS} className="sms-form">
+                        <div className="form-group">
+                            <label>Auto-Fetch by Grade (Optional)</label>
+                            <div style={{ display: 'flex', gap: '10px', marginBottom: '15px' }}>
+                                <select 
+                                    value={selectedGrade} 
+                                    onChange={(e) => setSelectedGrade(e.target.value)}
+                                    style={{ flex: 1, padding: '10px', border: '1px solid #dcdde1', borderRadius: '8px' }}
+                                >
+                                    <option value="" disabled>Select Grade to load numbers...</option>
+                                    <option value="All">All Grades (Entire School)</option>
+                                    <option value="Pre-KG">Pre-KG</option>
+                                    <option value="LKG">LKG</option>
+                                    <option value="UKG">UKG</option>
+                                    <option value="Grade 1">Grade 1</option>
+                                    <option value="Grade 2">Grade 2</option>
+                                    <option value="Grade 3">Grade 3</option>
+                                    <option value="Grade 4">Grade 4</option>
+                                    <option value="Grade 5">Grade 5</option>
+                                    <option value="Grade 6">Grade 6</option>
+                                    <option value="Grade 7">Grade 7</option>
+                                    <option value="Grade 8">Grade 8</option>
+                                    <option value="Grade 9">Grade 9</option>
+                                    <option value="Grade 10">Grade 10</option>
+                                    <option value="Grade 11">Grade 11</option>
+                                    <option value="Grade 12">Grade 12</option>
+                                </select>
+                                <button 
+                                    type="button" 
+                                    onClick={() => fetchPhonesByGrade(selectedGrade)}
+                                    className="btn"
+                                    style={{ background: '#3498db' }}
+                                    disabled={!selectedGrade}
+                                >
+                                    Load Numbers
+                                </button>
+                            </div>
+                        </div>
+
                         <div className="form-group">
                             <label>Recipient Mobile Numbers</label>
                             <p style={{fontSize: '0.8rem', color: '#666', marginTop: '-5px', marginBottom: '8px'}}>Enter multiple numbers separated by commas, spaces, or on new lines. You can easily copy/paste a list of 1000+ numbers here.</p>

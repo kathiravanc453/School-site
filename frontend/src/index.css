@@ -23,6 +23,7 @@ body {
   color: var(--text-dark);
   line-height: 1.6;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 a {
@@ -32,6 +33,11 @@ a {
 
 ul {
   list-style: none;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
 }
 
 .container {

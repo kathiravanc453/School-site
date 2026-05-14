@@ -1,0 +1,244 @@
+
+
+
+
+.date-picker-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: #f8fafc;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.date-picker-container label {
+    font-weight: 600;
+    color: #475569;
+}
+
+.attendance-date-input {
+    padding: 0.6rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 1rem;
+    color: #1e293b;
+    outline: none;
+    font-family: inherit;
+    transition: all 0.2s;
+}
+
+.attendance-date-input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.attendance-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: white;
+    padding: 1.2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+    text-align: center;
+    font-size: 1.1rem;
+    color: #475569;
+    border-top: 4px solid transparent;
+}
+
+.stat-card strong {
+    display: block;
+    font-size: 2rem;
+    margin-top: 0.5rem;
+    color: #1e293b;
+}
+
+.stat-card.total { border-color: #64748b; }
+.stat-card.present { border-color: #10b981; }
+.stat-card.absent { border-color: #ef4444; }
+.stat-card.leave { border-color: #f59e0b; }
+.stat-card.halfday { border-color: #3b82f6; }
+
+.attendance-table-wrapper {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.attendance-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+}
+
+.attendance-table th {
+    text-align: left;
+    padding: 1rem;
+    background: #f8fafc;
+    color: #64748b;
+    font-weight: 600;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.attendance-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #f1f5f9;
+    vertical-align: middle;
+}
+
+.attendance-table tbody tr {
+    transition: all 0.2s ease;
+}
+
+.attendance-table tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+/* Status-specific row backgrounds (very subtle) */
+.status-present td { background-color: rgba(16, 185, 129, 0.02); }
+.status-absent td { background-color: rgba(239, 68, 68, 0.02); }
+.status-leave td { background-color: rgba(245, 158, 11, 0.02); }
+.status-halfday td { background-color: rgba(59, 130, 246, 0.02); }
+
+.staff-info-cell {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.staff-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e2e8f0;
+}
+
+.status-options {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.status-radio {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid #cbd5e1;
+    color: #64748b;
+    background: white;
+    transition: all 0.2s ease;
+}
+
+.status-radio input {
+    display: none;
+}
+
+.status-radio:hover {
+    background: #f1f5f9;
+}
+
+/* Selected states */
+.status-radio.present.selected {
+    background: #10b981;
+    border-color: #10b981;
+    color: white;
+}
+.status-radio.absent.selected {
+    background: #ef4444;
+    border-color: #ef4444;
+    color: white;
+}
+.status-radio.leave.selected {
+    background: #f59e0b;
+    border-color: #f59e0b;
+    color: white;
+}
+.status-radio.halfday.selected {
+    background: #3b82f6;
+    border-color: #3b82f6;
+    color: white;
+}
+
+.remarks-input {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.2s;
+    font-family: inherit;
+}
+
+.remarks-input:focus {
+    border-color: #3b82f6;
+}
+
+.save-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e2e8f0;
+}
+
+.save-attendance-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #4f46e5;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);
+}
+
+.save-attendance-btn:hover {
+    background: #4338ca;
+    transform: translateY(-2px);
+}
+
+.save-attendance-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.success-message {
+    background: #d1fae5;
+    color: #065f46;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #10b981;
+    font-weight: 500;
+}
+
+.error-message {
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #ef4444;
+    font-weight: 500;
+}

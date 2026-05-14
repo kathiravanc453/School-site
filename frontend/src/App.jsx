@@ -15,17 +15,23 @@ import AdminEvents from './components/AdminEvents';
 import AdminMessages from './components/AdminMessages';
 import AdminTeachers from './components/AdminTeachers';
 import AdminGallery from './components/AdminGallery';
+import Academics from './components/Academics';
+import StudentResults from './components/StudentResults';
 import AdminFees from './components/AdminFees';
 import AdminAlumni from './components/AdminAlumni';
+import AdminStudentGrading from './components/AdminStudentGrading';
 import AnnouncementBanner from './components/AnnouncementBanner';
 import Faculty from './components/Faculty';
 import SocialSidebar from './components/SocialSidebar';
 import Chatbot from './components/Chatbot';
 import Alumni from './components/Alumni';
+import FeeTracking from './components/FeeTracking';
+import AdminStaffAttendance from './components/AdminStaffAttendance';
+import StaffLogin from './components/StaffLogin';
 
 const AppContent = () => {
   const location = useLocation();
-  const isAdminRoute = location.pathname.startsWith('/admin');
+  const isAdminRoute = location.pathname.startsWith('/admin') || location.pathname.startsWith('/staff');
   const isHome = location.pathname === '/';
 
   return (
@@ -40,11 +46,14 @@ const AppContent = () => {
           {/* Home page combines Hero and Admissions as a landing */}
           <Route path="/" element={<><Hero /><AdmissionForm /></>} />
           <Route path="/events" element={<Events />} />
+          <Route path="/academics" element={<Academics />} />
           <Route path="/facilities" element={<Facilities />} />
           <Route path="/faculty" element={<Faculty />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/achievements" element={<Achievements />} />
           <Route path="/admissions" element={<AdmissionForm />} />
+          <Route path="/student-results" element={<StudentResults />} />
+          <Route path="/student-fees" element={<FeeTracking />} />
           <Route path="/alumni" element={<Alumni />} />
           {/* <Route path="/contact" element={<Contact />} /> */}
 
@@ -57,9 +66,11 @@ const AppContent = () => {
           <Route path="/admin/gallery" element={<AdminGallery />} />
           <Route path="/admin/fees" element={<AdminFees />} />
           <Route path="/admin/alumni" element={<AdminAlumni />} />
+          <Route path="/admin/staff-attendance" element={<AdminStaffAttendance />} />
+          <Route path="/admin/student-grading" element={<AdminStudentGrading />} />
+          <Route path="/staff/login" element={<StaffLogin />} />
         </Routes>
       </main>
-
       {!isAdminRoute && <Chatbot />}
       {!isAdminRoute && <Footer />}
     </div>

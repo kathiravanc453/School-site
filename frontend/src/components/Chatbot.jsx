@@ -13,7 +13,7 @@ const getResponse = (input) => {
     const lowerInput = input.toLowerCase();
 
     if (ruleBasedResponses.greetings.some(word => lowerInput.includes(word))) {
-        return "Hello there! 👋 I'm the EduConnect virtual assistant. How can I help you today?";
+        return "Hello there! 👋 I'm the Annai Therasa virtual assistant. How can I help you today?";
     }
     if (ruleBasedResponses.admissions.some(word => lowerInput.includes(word))) {
         return "Admissions for the upcoming academic year are currently OPEN! You can fill out the application form by clicking the 'Admissions' button in the top menu.";
@@ -25,7 +25,7 @@ const getResponse = (input) => {
         return "School timing is from 8:30 AM to 3:30 PM, Monday through Friday. The administrative office is open until 5:00 PM.";
     }
     if (ruleBasedResponses.contact.some(word => lowerInput.includes(word))) {
-        return "You can reach our main office at +91 9876543210 or email us at info@educonnect.com.";
+        return "You can reach our main office at +91 9876543210 or email us at info@annaitherasahss.com.";
     }
     
     return "I'm not quite sure about that! I can help you with admissions, fees, timings, and contact info. For specific queries, please call our office.";
@@ -34,7 +34,7 @@ const getResponse = (input) => {
 const Chatbot = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState([
-        { text: "Hi! 👋 Welcome to EduConnect. I'm your digital assistant. Ask me anything about admissions, fees, or school timings!", sender: 'bot' }
+        { text: "Hi! 👋 Welcome to Annai Therasa Hr Sec School. I'm your digital assistant. Ask me anything about admissions, fees, or school timings!", sender: 'bot' }
     ]);
     const [inputValue, setInputValue] = useState('');
     const messagesEndRef = useRef(null);
@@ -81,7 +81,7 @@ const Chatbot = () => {
                         <div className="chatbot-header-info">
                             <span className="bot-avatar">🤖</span>
                             <div>
-                                <h4>EduBot Assistant</h4>
+                                <h4>Annai Therasa Assistant</h4>
                                 <span className="online-status">● Online</span>
                             </div>
                         </div>

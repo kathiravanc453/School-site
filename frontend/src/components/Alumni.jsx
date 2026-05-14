@@ -31,7 +31,7 @@ const Alumni = () => {
                 <h2 style={{ fontSize: '2.5rem', color: '#2c3e50', marginBottom: '15px' }}>🎓 Alumni Hall of Fame</h2>
                 <p style={{ fontSize: '1.1rem', color: '#666', maxWidth: '700px', margin: '0 auto 50px' }}>
                     Discover the incredible achievements of our past students. From top universities to industry leaders, 
-                    see how EduConnect Academy sets the foundation for lifelong success.
+                    see how Annai Therasa Hr Sec School sets the foundation for lifelong success.
                 </p>
 
                 {loading ? (

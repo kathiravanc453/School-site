@@ -23,13 +23,58 @@
     align-items: center;
 }
 
-.logo h2 {
-    font-size: 1.8rem;
-    font-weight: 800;
+.school-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-.logo span {
+.school-brand-icon {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: var(--transition);
+}
+
+.school-brand-icon i {
+    color: white;
+    font-size: 1.4rem;
+}
+
+.school-brand:hover .school-brand-icon {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.school-brand-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.school-brand-text h2 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    line-height: 1.1;
+    color: inherit;
+    transition: var(--transition);
+}
+
+.school-brand-text span {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
     color: var(--accent-color);
+    margin-top: 2px;
 }
 
 .nav-links {

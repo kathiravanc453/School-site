@@ -324,7 +324,7 @@ const AdminFees = () => {
                         </button>
                         <input 
                             type="text" 
-                            placeholder="🔍 Search name or grade..." 
+                            placeholder="🔍 Search student name..." 
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                             style={{ padding: '8px 15px', borderRadius: '20px', border: '1px solid #ccc', outline: 'none', width: '250px' }}
@@ -357,7 +357,7 @@ const AdminFees = () => {
                                     <tr key={student.id}>
                                         <td>
                                             <strong>{student.name}</strong><br/>
-                                            <span style={{ fontSize: '0.85rem', color: '#888' }}>Reg No: {student.reg_number || 'N/A'} | {student.grade}</span>
+                                            <span style={{ fontSize: '0.85rem', color: '#888' }}>Roll No: {student.reg_number || 'N/A'}</span>
                                         </td>
                                         <td style={{ fontWeight: 'bold' }}>₹{parseFloat(student.total_fee).toLocaleString()}</td>
                                         <td style={{ color: '#28a745', fontWeight: 'bold' }}>₹{parseFloat(student.amount_paid).toLocaleString()}</td>
@@ -481,10 +481,10 @@ const AdminFees = () => {
                                         />
                                     </div>
                                     <div style={{ marginBottom: '15px' }}>
-                                        <label style={{ display: 'block', marginBottom: '5px', fontWeight: 'bold' }}>Registration Number</label>
+                                        <label style={{ display: 'block', marginBottom: '5px', fontWeight: 'bold' }}>Roll Number</label>
                                         <input 
                                             type="text" value={walkinReg} onChange={e => setWalkinReg(e.target.value)}
-                                            style={{ width: '100%', padding: '10px', border: '1px solid #ccc', borderRadius: '5px' }} placeholder="e.g. REG-12345"
+                                            style={{ width: '100%', padding: '10px', border: '1px solid #ccc', borderRadius: '5px' }} placeholder="e.g. 4126"
                                         />
                                     </div>
                                 </div>
@@ -527,10 +527,27 @@ const AdminFees = () => {
                                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px' }}>
                                     <div style={{ marginBottom: '20px' }}>
                                         <label style={{ display: 'block', marginBottom: '5px', fontWeight: 'bold' }}>Grade / Class</label>
-                                        <input 
-                                            type="text" value={walkinGrade} onChange={e => setWalkinGrade(e.target.value)}
-                                            style={{ width: '100%', padding: '10px', border: '1px solid #ccc', borderRadius: '5px' }} 
-                                        />
+                                        <select 
+                                            value={walkinGrade} onChange={e => setWalkinGrade(e.target.value)}
+                                            style={{ width: '100%', padding: '10px', border: '1px solid #ccc', borderRadius: '5px', background: '#fff' }} 
+                                        >
+                                            <option value="Pre-KG">Pre-KG</option>
+                                            <option value="LKG">LKG</option>
+                                            <option value="UKG">UKG</option>
+                                            <option value="Grade 1">Grade 1</option>
+                                            <option value="Grade 2">Grade 2</option>
+                                            <option value="Grade 3">Grade 3</option>
+                                            <option value="Grade 4">Grade 4</option>
+                                            <option value="Grade 5">Grade 5</option>
+                                            <option value="Grade 6">Grade 6</option>
+                                            <option value="Grade 7">Grade 7</option>
+                                            <option value="Grade 8">Grade 8</option>
+                                            <option value="Grade 9">Grade 9</option>
+                                            <option value="Grade 10">Grade 10</option>
+                                            <option value="Grade 11">Grade 11</option>
+                                            <option value="Grade 12">Grade 12</option>
+                                            <option value="General">General / Walk-in</option>
+                                        </select>
                                     </div>
                                     <div style={{ marginBottom: '20px' }}>
                                         <label style={{ display: 'block', marginBottom: '5px', fontWeight: 'bold' }}>Payment Method</label>

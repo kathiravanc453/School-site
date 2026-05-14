@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ─── Page Wrapper ─────────────────────────────────── */
+.fee-tracking-section {
+    padding: 90px 20px 60px;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f0f4f8 0%, #e8f5e9 100%);
+    font-family: 'Inter', sans-serif;
+}
+
+/* ─── Main Card ────────────────────────────────────── */
+.fee-tracking-container {
+    max-width: 680px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 48px 48px 40px;
+    border-radius: 20px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* ─── Title & Subtitle ─────────────────────────────── */
+.fee-tracking-title {
+    text-align: center;
+    color: #1a202c;
+    margin: 0 0 8px;
+    font-size: 1.9rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.fee-tracking-subtitle {
+    text-align: center;
+    color: #718096;
+    margin: 0 0 36px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* ─── Search Form ──────────────────────────────────── */
+.tracking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 28px;
+}
+
+.tracking-form input,
+.tracking-form select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 16px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-family: 'Inter', sans-serif;
+    color: #2d3748;
+    background: #f7fafc;
+    transition: border-color 0.25s, box-shadow 0.25s;
+    outline: none;
+}
+
+.tracking-form input:focus,
+.tracking-form select:focus {
+    border-color: #27ae60;
+    box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.12);
+    background: #fff;
+}
+
+/* ─── Track Button ─────────────────────────────────── */
+.btn-track {
+    padding: 14px;
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    letter-spacing: 0.3px;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.btn-track:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(39, 174, 96, 0.35);
+}
+
+.btn-track:active {
+    transform: translateY(0);
+}
+
+/* ─── Error / Alert ────────────────────────────────── */
+.alert-error {
+    background: #fff5f5;
+    border: 1px solid #feb2b2;
+    color: #c53030;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* ─── Result Card ──────────────────────────────────── */
+.fee-result-card {
+    background: #f7fafc;
+    border: 1.5px solid #e2e8f0;
+    border-left: 5px solid #27ae60;
+    padding: 28px;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    margin-top: 8px;
+}
+
+/* ─── Student Name ─────────────────────────────────── */
+.student-name {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin: 0 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.student-name::before {
+    content: '👤';
+    font-size: 1.2rem;
+}
+
+/* ─── Fee Stats Grid ───────────────────────────────── */
+.fee-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+.fee-stat {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    padding: 16px 12px;
+    border-radius: 12px;
+    text-align: center;
+    transition: box-shadow 0.2s;
+}
+
+.fee-stat:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.fee-stat span {
+    display: block;
+    color: #718096;
+    font-size: 0.78rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.fee-stat strong {
+    display: block;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1a202c;
+}
+
+/* ─── Download Button ──────────────────────────────── */
+.btn-download {
+    width: 100%;
+    padding: 13px;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.btn-download:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.35);
+}
+
+/* ─── Responsive ───────────────────────────────────── */
+@media (max-width: 600px) {
+    .fee-tracking-container {
+        padding: 32px 22px 28px;
+    }
+
+    .fee-tracking-title {
+        font-size: 1.5rem;
+    }
+
+    .fee-details {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 380px) {
+    .fee-details {
+        grid-template-columns: 1fr;
+    }
+}

@@ -13,4 +13,18 @@ const pool = mysql.createPool({
   queueLimit: 0,
 });
 
+// Quick connection check when this module is loaded so startup errors are visible
+async function testConnection() {
+  try {
+    const conn = await pool.getConnection();
+    await conn.ping();
+    console.log('MySQL pool connected to', process.env.DB_NAME || 'schoolDB');
+    conn.release();
+  } catch (err) {
+    console.error('MySQL connection error:', err.message || err);
+  }
+}
+
+testConnection();
+
 module.exports = pool;
